@@ -1,0 +1,37 @@
+body {
+
+    background-color: #201e1c;
+}
+
+section {
+
+    background-color: #dfe0be;
+    margin: 20px;
+}
+
+nav {
+    background-color: #201e1c;
+
+
+}
+
+.nav-link {
+    color: #dfe0be;
+}
+
+.jumbotron {
+
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #dfe0be;
+}
+
+.card {
+    margin: 20px;
+}
+
+/* .textcolor {
+
+    color: #F8E9A1
+} */
