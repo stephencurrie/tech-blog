@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: rgb(219, 219, 180);
+  }
+
+  section {
+    margin: 30px;
+  }
+
+  .jumbotron {
+    background-color: rgb(38, 38, 36);
+    color: rgb(219, 219, 180);
+    margin: 0px;
+
+  }
+
+ nav {
+    background-color: rgb(38, 38, 36);
+    
+  }
+
+  .nav-item {
+    color: rgb(219, 219, 180);
+  }
+
+  h1 {
+    background-color: rgb(219, 219, 180);
+    width: 500px;
+    color: rgb(38, 38, 36);
+  }
+
+  .card {
+      margin: 20px;
+      border-style: solid;
+      border-color: rgb(38, 38, 36);
+  }
