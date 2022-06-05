@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blogs = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      posts, 
+      blogs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -35,10 +35,17 @@ router.get('/post/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
-      ],
-    });
+        {
+            model: Comment,
+            include: {
+              model: User,
+              attributes: ['username'],
+            },
+          },
+        ],
+      });
 
-    const post = postData.get({ plain: true });
+    const blog = postData.get({ plain: true });
 
     res.render('post', {
       ...post,
@@ -50,7 +57,7 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -60,7 +67,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('dashboard', {
       ...user,
       logged_in: true
     });
@@ -78,5 +85,28 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/create-blog', (req, res) => {
+    res.render('create-blog', {
+        logged_in: true,
+      });
+    });
+
+router.get('/edit-blog', (req, res) => {
+    const blog = {
+        id: 'id',
+        title: 'title2',
+        content: 'content2',
+        author: 'author',
+        date: '1/17/2022',
+      };
+    
+      res.render('edit-blog', {
+        ...blog,
+        logged_in: true,
+      });
+    });
+    
+
 
 module.exports = router;
