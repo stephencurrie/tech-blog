@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    {{!-- <h6 class="card-subtitle mb-2 text-muted">
+            Posted by {{blog.user_id}} on {{blog.date_created}}
+          </h6> --}}
+    <p class="card-text">
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          id="edit-text-area"
+          rows="3"
+        >{{description}}</textarea>
+      </div>
+
+    </p>
+    <div>
+
+      <button id="edit-post-save-button" data-id="{{id}}">Save Post</button>
+    </div>
+  </div>
+</div>
