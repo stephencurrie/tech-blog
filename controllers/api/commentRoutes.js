@@ -4,12 +4,12 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newPost = await Post.create({
+    const newComment = await Post.create({
       ...req.body,
       userId: req.session.user_id,
     });
 
-    res.status(200).json(newPost);
+    res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -17,20 +17,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.destroy({
+    const commentData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-
-    if (!postData) {
+    if (!commentData) {
       res.status(404).json({ message: 'No blog post found with this id!' });
       return;
     }
 
-    res.status(200).json(postData);
+    res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }

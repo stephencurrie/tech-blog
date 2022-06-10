@@ -1,5 +1,31 @@
-{{#if Posts}}
-  {{#each Posts as |post|}}
+{{#if posts}}
+  {{#each posts as |post|}}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{blog.content}}
+          </p>
+          <div>
+            <form id="dashboardactions">
+              <a href="/edit-blog">Edit Blog</a>
+              <button id="delete-post-button">Delete Post</button>
+              </form>
+          </div>
+        </div>
+      </div>
+  {{/each}}
+{{/if}}
+
+<div class='row'>
+  <button onclick="window.location.href='/create-blog';" type="submit" id="add-post-link" class="btn btn-primary">Add Post</button>
+  {{!-- <a id='add-post-link' href='/create-blog'>Add Post</a> --}}
+</div>
+
+   <script src="/js/dashboard.js"></script>
+
+{{!-- {{#if posts}}
+  {{#each posts as |post|}}
     <div class='row'>
       <div class='card'>
         <div class='card-header'>{{post.title}}</div>
@@ -16,19 +42,15 @@
       </div>
     </div>
   {{/each}}
-{{/if}}
+{{/if}} --}}
 
-<div class='row'>
-  <a id='add-post-link' href='/create-blog'>Add Post</a>
-</div>
+
+
 {{!-- 
 {{#each blogs as |blog| }}
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{blog.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            Posted by {{blog.user.username}} on {{blog.date_created}}
-          </h6>
+          <h5 class="card-title">{{post.title}}</h5>
           <p class="card-text">
             {{blog.content}}
           </p>
