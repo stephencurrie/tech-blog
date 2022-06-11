@@ -37,7 +37,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-console.log (user);
+// console.log (user);
     res.render("dashboard", {
       ...user,
       logged_in: req.session.logged_in,
@@ -73,7 +73,7 @@ router.get("/edit-blog", (req, res) => {
 //   };
 
   res.render("edit-blog", {
-    ...blog,
+    // ...blog,
     logged_in: true,
   });
 });

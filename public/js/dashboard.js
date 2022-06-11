@@ -1,20 +1,31 @@
-const newPostHandler = async (evt) => {
-    evt.preventDefault();
-    const title = document.querySelector('#posttitle').value;
-    const content = document.querySelector('#postcontent').value;
-  
-    await fetch('/api/posts', {
-      method: 'POST',
-      body: JSON.stringify({
-        title,
-        content,
-      }),
-      headers: { 'Content-Type': 'application/json' },
+const postId = document.querySelector('data-id').value;
+console.log(data-id.value);
+
+
+
+
+
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'DELETE',
     });
-  
-    document.location.replace('/dashboard');
-  };
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete post');
+    }
+  }
+};
+
+document
+  .querySelector('#dashboardactions')
+  .addEventListener('submit', editFormHandler);
   
   document
-    .querySelector('#create-blog-form')
-    .addEventListener('submit', newPostHandler);
+    .querySelector('#dashboardactions')
+    .addEventListener('click', delButtonHandler);
+

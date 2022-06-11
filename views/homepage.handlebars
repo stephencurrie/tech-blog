@@ -1,8 +1,8 @@
-<!-- Loop over each object in the blogs array -->
+<!-- Loop over each object in the blogs array  -->
 {{#each blogs as |blog| }}
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{blog.title}}</h5>
+          <h5 class="card-title"><a href="/blogs/{{id}}"> {{blog.title}} </a> </h5>
           <h6 class="card-subtitle mb-2 text-muted">
             Posted by {{blog.user.username}} on {{blog.date_created}}
           </h6>

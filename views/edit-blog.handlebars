@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
-    {{!-- <h6 class="card-subtitle mb-2 text-muted">
-            Posted by {{blog.user_id}} on {{blog.date_created}}
-          </h6> --}}
-    <p class="card-text">
+     <h6 class="card-subtitle mb-2 text-muted">
+            Posted by {{blog.user.username}} on {{blog.date_created}}
+          </h6> 
+ <p class="card-text">
       <div class="form-group">
         <textarea
           class="form-control"
@@ -20,3 +20,4 @@
     </div>
   </div>
 </div>
+
