@@ -9,7 +9,7 @@
     </div>
     <div class='card-footer text-muted'>
       Posted by
-      {{username}}
+      {{user.username}}
       on
       {{date_created}}
     </div>
@@ -19,6 +19,7 @@
 <div class='row'>
   <form id='comment-form'>
     <textarea id='comment-text-area'></textarea>
+    
     <button id='comment-submit' data-id='{{id}}'>Submit Comment</button>
   </form>
 </div>

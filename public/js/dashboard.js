@@ -1,5 +1,5 @@
-const postId = document.querySelector('data-id').value;
-console.log(data-id.value);
+// const postId = document.querySelector('data-id').value;
+// console.log(data-id.value);
 
 
 
@@ -21,11 +21,13 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('#dashboardactions')
-  .addEventListener('submit', editFormHandler);
-  
-  document
-    .querySelector('#dashboardactions')
-    .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('#edit-blog')
+//   .addEventListener('click', editFormHandler);
+  const deletepostbutton = document.querySelector('#delete-post-button')
+if (deletepostbutton !== null) {
+  deletepostbutton.addEventListener('click', delButtonHandler);
+}
+
+
 

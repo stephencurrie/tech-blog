@@ -2,14 +2,14 @@
   {{#each posts as |post|}}
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title" id="post-title">{{post.title}}</h5>
+          <h5 class="card-title" id="post-title"><a href="/blogs/{{id}}">{{post.title}} </a></h5>
           <p class="card-text" id="post-content">
             {{post.content}}
           </p>
           <div>
             <form id="dashboardactions">
               <a href="/edit-blog" id="edit-blog">Edit Blog</a>
-              <button data-id="{{post.id}}">Delete Post</button>
+              <button id="delete-post-button" data-id="{{post.id}}">Delete Post</button>
               {{!-- <button id="delete-post-button">Delete Post</button> --}}
               </form>
           </div>
